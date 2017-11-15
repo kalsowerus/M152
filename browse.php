@@ -3,7 +3,17 @@
 	<body>
 		<?php include "lib\\nav.php" ?>
 		<div class="container">
-			<h2>New Videos</h2>
+			<h2>Browse</h2>
+			<form class="form-inline">
+				<label for="sort">Sort by</label>
+				<select id="sort" class="form-control">
+					<option value="name_asc">Name ascending</option>
+					<option value="name_desc">Name descending</option>
+					<option value="likes_asc">Likes ascending</option>
+					<option value="likes_desc">Likes descending</option>
+				</select>
+			</form>
+			<hr />
 			<div class="row">
 				<div class="col-md-4 col-md-offset-0 col-sm-8 col-sm-offset-2">
 					<div style="position: relative;">
