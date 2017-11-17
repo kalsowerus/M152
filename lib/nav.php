@@ -18,6 +18,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/m152/login.php">Login</a></li>
+				<li><a href="/m152/register.php">Register</a></li>
 			</ul>
 		</div>
 	</div>
