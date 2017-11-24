@@ -49,7 +49,9 @@ if($_SERVER['REQUEST_METHOD'] === 'GET') {
 		$createUser = $connection->prepare("INSERT INTO User (name, password) VALUES (?, ?)");
 		$createUser->bind_param("ss", $_POST['username'], $password);
 		if($createUser->execute()) {
-			echo "User created";
+			$connection->close();
+			header("Location: /m152/login.php");
+			die();
 		} else {
 			$connection->close();
 			die("Error creating user: $createUser->error");
