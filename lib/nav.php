@@ -17,8 +17,27 @@
 				<li><a href="/m152/browse.php">Browse</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+<?php
+session_start();
+if(!isset($_SESSION['user'])) {
+?>
 				<li><a href="/m152/login.php">Login</a></li>
 				<li><a href="/m152/register.php">Register</a></li>
+<?php
+} else {
+?>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<?php echo $_SESSION['username']; ?>
+						<span class="caret"></span>
+						<ul class="dropdown-menu">
+							<li><a href="/m152/logout.php">Logout</a></li>
+						</ul>
+					</a>
+				</li>
+<?php
+}
+?>
 			</ul>
 		</div>
 	</div>
