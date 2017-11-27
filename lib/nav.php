@@ -26,7 +26,8 @@ if(!isset($_SESSION['user'])) {
 <?php
 } else {
 ?>
-				<li class="dropdown">
+                <li><a href="/m152/upload.php"">Upload</a></li>
+                </li><li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php echo $_SESSION['username']; ?>
 						<span class="caret"></span>
