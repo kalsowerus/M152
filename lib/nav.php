@@ -18,7 +18,9 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 <?php
-session_start();
+if(session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 if(!isset($_SESSION['user'])) {
 ?>
 				<li><a href="/m152/login.php">Login</a></li>
