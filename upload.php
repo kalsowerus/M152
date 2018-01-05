@@ -1,3 +1,32 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $connection = new mysqli("localhost", "root", "", "m152");
+    if($connection->connect_error) {
+        die("DB Connection failed: $connection->connect_error");
+    }
+
+    session_start();
+
+    $createVideo = $connection->prepare("INSERT INTO Video (title, description, likes, uploader) VALUES (?, ?, 0, ?)");
+    $createVideo->bind_param("ssi", $_POST['title'], $_POST['description'], $_SESSION['user']);
+
+    if($createVideo->execute()) {
+        $id = $connection->insert_id;
+
+        $videoSource = $_FILES['video']['tmp_name'];
+        $thumbnailSource = $_FILES['thumbnail']['tmp_name'];
+
+        mkdir("uploads/$id");
+        $videoTarget = "uploads/$id/video.mp4";
+        $thumbnailTarget360 = "uploads/$id/360.png";
+        $thumbnailTarget720 = "uploads/$id/720.png";
+
+        shell_exec("lib\\ffmpeg.exe -i \"$videoSource\" -vcodec h264 -acodec aac \"$videoTarget\"");
+        shell_exec("lib\\ffmpeg.exe -i \"$thumbnailSource\" -vf scale=360:-1 \"$thumbnailTarget360\"");
+        shell_exec("lib\\ffmpeg.exe -i \"$thumbnailSource\" -vf scale=720:-1 \"$thumbnailTarget720\"");
+    }
+}
+?>
 <html>
 	<?php include "lib\\head.php" ?>
 	<body>
