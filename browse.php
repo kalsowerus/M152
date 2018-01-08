@@ -23,6 +23,7 @@
 	
 	$listVideos = $connection->prepare("SELECT * FROM Video ORDER BY $sortString");
 ?>
+<!DOCTYPE html>
 <html>
 	<?php include "lib\\head.php" ?>
 	<body>
@@ -50,7 +51,7 @@
 								<div style="position: relative;">
 									<picture>
 										<source media="(min-width: 992px)" srcset="/m152/uploads/<?php echo $video['id'] ?>/360.png" />
-										<img src="/m152/uploads/<?php echo $video['id'] ?>/720.png" style="width: 100%;" />
+										<img src="/m152/uploads/<?php echo $video['id'] ?>/720.png" style="width: 100%;" alt="thumbnail" />
 									</picture>
 									<span style="
 											position: absolute;

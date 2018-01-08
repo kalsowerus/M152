@@ -28,15 +28,15 @@ if(!isset($_SESSION['user'])) {
 <?php
 } else {
 ?>
-                <li><a href="/m152/upload.php"">Upload</a></li>
-                </li><li class="dropdown">
+                <li><a href="/m152/upload.php">Upload</a></li>
+                <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<?php echo $_SESSION['username']; ?>
 						<span class="caret"></span>
-						<ul class="dropdown-menu">
-							<li><a href="/m152/logout.php">Logout</a></li>
-						</ul>
 					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/m152/logout.php">Logout</a></li>
+					</ul>
 				</li>
 <?php
 }

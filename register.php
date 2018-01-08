@@ -1,6 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
 ?>
+<!DOCTYPE html>
 <html>
 	<?php include "lib\\head.php" ?>
 	<body>

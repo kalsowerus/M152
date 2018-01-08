@@ -27,6 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$connection->close();
 }
 ?>
+<!DOCTYPE html>
 <html>
 	<?php include "lib\\head.php" ?>
 	<body>

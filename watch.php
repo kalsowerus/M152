@@ -13,7 +13,7 @@
 		$video = $findVideo->get_result()->fetch_assoc();
 	}
 ?>
-
+<!DOCTYPE html>
 <html>
 	<?php include "lib\\head.php" ?>
 	<body>
